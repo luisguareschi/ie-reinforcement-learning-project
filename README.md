@@ -2,6 +2,8 @@
 
 Solve the [Gymnasium Taxi-v4](https://gymnasium.farama.org/environments/toy_text/taxi/) environment using tabular Q-learning and a shallow regularized DQN.
 
+Written report: [report/analysis.md](report/analysis.md)
+
 ---
 
 ## Setup
@@ -88,5 +90,3 @@ Open the notebook for plots and interpretation:
 ```bash
 jupyter notebook notebooks/taxi_analysis.ipynb
 ```
-
-Written report: [report/analysis.md](report/analysis.md)
