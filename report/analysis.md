@@ -22,18 +22,6 @@ Both algorithms solve Taxi-v4. Tabular Q-learning reaches strong eval performanc
 
 Q-learning is the natural fit: the state space is small and fully observable, so storing one value per `(state, action)` avoids function approximation error entirely.
 
-## DQN fix: masked bootstrap targets
-
-Early DQN runs failed completely (-200 reward, loss ~558) because the Bellman target used `max_a Q(s', a)` over **all six actions**, including invalid moves (wall bumps, illegal pickup/dropoff). Invalid actions received spuriously high Q-values, targets exploded, and learning collapsed.
-
-The fix uses **masked Double DQN**:
-
-1. Store `next_action_mask` in the replay buffer.
-2. Select the best **valid** next action with the policy net.
-3. Evaluate it with the target net.
-4. Clip targets to `[-200, 25]`.
-
-After this change, DQN converges in ~25 s for 4,000 episodes with the fast config below.
 
 ## Hyperparameter sweep
 
@@ -70,17 +58,3 @@ Full results: `results/sweep_summary.csv`
 | **Scalability** | Only small discrete spaces | Extends to large/continuous obs |
 
 For Taxi-v4, **tabular Q-learning is simpler, faster, and more reliable**. DQN demonstrates that function approximation can work on the same problem but needs careful handling of action masking and regularization — skills that transfer to larger environments (e.g. Pong) where tabular methods are infeasible.
-
-## Reproducing results
-
-```bash
-# Baselines
-python scripts/train_q_learning.py --output-dir results/q_learning/baseline
-python scripts/train_dqn.py --output-dir results/dqn/baseline
-
-# Full sweep (~5 min)
-python scripts/sweep_hyperparams.py
-
-# Analysis notebook
-jupyter notebook notebooks/taxi_analysis.ipynb
-```

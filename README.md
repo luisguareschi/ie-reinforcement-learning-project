@@ -2,6 +2,8 @@
 
 Solve the [Gymnasium Taxi-v4](https://gymnasium.farama.org/environments/toy_text/taxi/) environment using tabular Q-learning and a shallow regularized DQN.
 
+---
+
 ## Setup
 
 ```bash
@@ -9,6 +11,8 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+---
 
 ## Train
 
@@ -44,7 +48,7 @@ python scripts/sweep_hyperparams.py
 
 Use `--no-progress` on any script to disable `tqdm` bars.
 
-## Results
+### Results
 
 Each run writes to its `--output-dir`:
 
@@ -54,6 +58,28 @@ Each run writes to its `--output-dir`:
 - `q_table.npy` or `agent.pt` — saved agent
 
 Sweep output: `results/sweep_summary.csv`
+
+---
+
+## Visual demo
+
+Run a saved agent with the Gymnasium renderer (interactive arrow-key picker):
+
+```bash
+python scripts/demo_taxi.py
+```
+
+Use ↑/↓ to navigate, Enter to select. Models are grouped by algorithm with ★ recommendations.
+
+Pick a model by path to skip the menu:
+
+```bash
+python scripts/demo_taxi.py --run dqn/baseline
+python scripts/demo_taxi.py --run 1 --episodes 5 --delay 0.3
+python scripts/demo_taxi.py --render-mode ansi   # terminal-only
+```
+
+---
 
 ## Analysis
 
