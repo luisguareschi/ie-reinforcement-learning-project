@@ -1,5 +1,7 @@
 # Taxi-v4 Analysis Report
 
+Made By: Luis Guareschi
+
 Environment: [Gymnasium Taxi-v4](https://gymnasium.farama.org/environments/toy_text/taxi/) — 500 discrete states, 6 actions, rewards of **-1/step**, **+20** delivery, **-10** illegal pickup/dropoff.
 
 ## Baseline comparison
