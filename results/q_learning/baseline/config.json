@@ -1,0 +1,12 @@
+{
+  "alpha": 0.5,
+  "gamma": 0.99,
+  "epsilon_start": 1.0,
+  "epsilon_end": 0.05,
+  "decay_episodes": 8000,
+  "n_states": 500,
+  "n_actions": 6,
+  "episodes": 15000,
+  "seed": 42,
+  "algo": "q_learning"
+}

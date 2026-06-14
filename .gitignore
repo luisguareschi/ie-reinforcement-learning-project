@@ -158,7 +158,6 @@ env.bak/
 venv.bak/
 
 # Experiment outputs
-results/
 .mplconfig/
 
 # Spyder project settings

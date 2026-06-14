@@ -1,0 +1,12 @@
+{
+  "final_avg_reward": 6.63,
+  "final_success_rate": 0.98,
+  "avg_steps_success": 14.316202712348323,
+  "total_episodes": 15000,
+  "training_time_sec": 4.859046165947802,
+  "eval": {
+    "mean_reward": 7.34,
+    "mean_steps": 13.66,
+    "success_rate": 1.0
+  }
+}
